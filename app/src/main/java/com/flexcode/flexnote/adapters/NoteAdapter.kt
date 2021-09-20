@@ -1,15 +1,22 @@
-package com.flexcode.flexnote
+package com.flexcode.flexnote.adapters
 
+import android.app.AlertDialog
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.content.Intent
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.flexcode.flexnote.R
+import com.flexcode.flexnote.activities.MainActivity
+import com.flexcode.flexnote.activities.ViewNotesActivity
+import com.flexcode.flexnote.database.Note
 
 class NoteAdapter(
-    val context: Context,
+    private val context: Context,
     private val noteClickDeleteInterface: NoteClickDeleteInterface,
     private val noteClickInterface: NoteClickInterface
 ) : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
@@ -19,7 +26,7 @@ class NoteAdapter(
     inner class NoteViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val tvNoteTitle: TextView = itemView.findViewById(R.id.tvNoteTitle)
         val tvTimeStamp: TextView = itemView.findViewById(R.id.tvNoteTimeStamp)
-        val ivDelete: ImageView = itemView.findViewById(R.id.ivDelete)
+        val ivOptions: ImageView = itemView.findViewById(R.id.ivOptions)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
@@ -32,8 +39,20 @@ class NoteAdapter(
         holder.tvNoteTitle.text = allNotes[position].noteTitle
         holder.tvTimeStamp.text = "LastlyUpdated : " + allNotes[position].timestamp
 
-        holder.ivDelete.setOnClickListener {
-            noteClickDeleteInterface.onDeleteIconClick(allNotes[position])
+        holder.ivOptions.setOnClickListener {
+            val options = arrayOf(
+                "Delete"
+            )
+            val builder = AlertDialog.Builder(context)
+            builder.setTitle("Delete")
+            builder.setItems(options) { dialog, i ->
+                if (i == 0){
+                    noteClickDeleteInterface.onDeleteIconClick(allNotes[position])
+                }
+
+
+            }
+            builder.show()
         }
 
         holder.itemView.setOnClickListener {

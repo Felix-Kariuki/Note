@@ -1,7 +1,8 @@
-package com.flexcode.flexnote
+package com.flexcode.flexnote.database.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.flexcode.flexnote.database.Note
 
 @Dao
 interface NoteDao {

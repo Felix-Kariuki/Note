@@ -1,9 +1,10 @@
-package com.flexcode.flexnote
+package com.flexcode.flexnote.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.flexcode.flexnote.database.dao.NoteDao
 
 @Database(entities = [Note::class], version = 1, exportSchema = false)
 abstract class NoteDatabase: RoomDatabase() {

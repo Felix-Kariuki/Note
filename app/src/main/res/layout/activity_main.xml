@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/note_item"
-        android:id="@+id/rvNotes">
+        android:id="@+id/rvNotes"
+        android:scrollbars="none"
+        android:overScrollMode="never">
 
     </androidx.recyclerview.widget.RecyclerView>
 

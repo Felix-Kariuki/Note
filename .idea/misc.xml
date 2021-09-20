@@ -4,9 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/android/3 Personal/FlexNote/app/src/main/res/drawable/button.xml" value="0.12962962962962962" />
-        <entry key="..\:/android/3 Personal/FlexNote/app/src/main/res/layout/activity_add_edit_note.xml" value="0.152" />
-        <entry key="..\:/android/3 Personal/FlexNote/app/src/main/res/layout/activity_main.xml" value="0.152" />
-        <entry key="..\:/android/3 Personal/FlexNote/app/src/main/res/layout/note_item.xml" value="0.136" />
+        <entry key="..\:/android/3 Personal/FlexNote/app/src/main/res/layout/activity_add_edit_note.xml" value="0.264" />
+        <entry key="..\:/android/3 Personal/FlexNote/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/android/3 Personal/FlexNote/app/src/main/res/layout/activity_view_notes.xml" value="0.27447916666666666" />
+        <entry key="..\:/android/3 Personal/FlexNote/app/src/main/res/layout/note_item.xml" value="0.264" />
       </map>
     </option>
   </component>

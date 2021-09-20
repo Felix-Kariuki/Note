@@ -1,9 +1,12 @@
-package com.flexcode.flexnote
+package com.flexcode.flexnote.viewmodels
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
+import com.flexcode.flexnote.database.Note
+import com.flexcode.flexnote.database.NoteDatabase
+import com.flexcode.flexnote.database.repository.NoteRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

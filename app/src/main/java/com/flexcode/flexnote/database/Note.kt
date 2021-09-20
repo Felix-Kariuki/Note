@@ -1,4 +1,4 @@
-package com.flexcode.flexnote
+package com.flexcode.flexnote.database
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

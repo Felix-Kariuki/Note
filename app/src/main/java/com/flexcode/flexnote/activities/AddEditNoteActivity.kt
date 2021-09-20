@@ -1,10 +1,12 @@
-package com.flexcode.flexnote
+package com.flexcode.flexnote.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import com.flexcode.flexnote.database.Note
+import com.flexcode.flexnote.viewmodels.NoteViewModel
 import com.flexcode.flexnote.databinding.ActivityAddEditNoteBinding
 import java.text.SimpleDateFormat
 import java.util.*
@@ -19,6 +21,7 @@ class AddEditNoteActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAddEditNoteBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar!!.hide()
 
         val etEditNoteTitle = binding.etEditNoteTitle
         val etEditNoteDescription = binding.etEditNoteDescription
@@ -64,7 +67,7 @@ class AddEditNoteActivity : AppCompatActivity() {
                         Toast.LENGTH_SHORT).show()
                 }
             }
-            startActivity(Intent(applicationContext,MainActivity::class.java))
+            startActivity(Intent(applicationContext, MainActivity::class.java))
             this.finish()
         }
     }
