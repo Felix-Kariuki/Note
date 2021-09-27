@@ -19,6 +19,12 @@ import com.flexcode.flexnote.database.Note
 import com.flexcode.flexnote.databinding.ActivityMainBinding
 import com.flexcode.flexnote.viewmodels.NoteViewModel
 import com.google.android.material.snackbar.Snackbar
+import android.view.ViewGroup
+
+import android.R.string.no
+import android.widget.Button
+import java.lang.RuntimeException
+
 
 class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInterface {
 
@@ -34,6 +40,8 @@ class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInt
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar!!.hide()
+
+
 
         rvNotes = binding.rvNotes
         rvNotes.layoutManager = LinearLayoutManager(this)
