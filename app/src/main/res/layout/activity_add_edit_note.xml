@@ -7,27 +7,29 @@
     tools:context=".activities.AddEditNoteActivity">
 
     <EditText
+        android:id="@+id/etEditNoteTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:inputType="textEmailAddress"
         android:hint="Note Title"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
-        android:layout_margin="10dp"
-        android:id="@+id/etEditNoteTitle"/>
+        android:minHeight="48dp"
+        android:autofillHints="" />
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="150dp"
         android:hint="Description"
         android:textColor="@color/black"
-        android:textColorHint="@color/black"
         android:layout_margin="10dp"
-        android:gravity="start|top"
-        android:inputType="textImeMultiLine"
+        android:inputType="textEmailAddress"
         android:layout_below="@+id/etEditNoteTitle"
-        android:singleLine="false"
-        android:layout_above="@+id/btnAddUpdate"
-        android:id="@+id/etEditNoteDescription"/>
+        android:id="@+id/etEditNoteDescription"
+        android:autofillHints="" />
+
 
     <Button
         android:id="@+id/btnAddUpdate"
@@ -37,5 +39,6 @@
         android:layout_margin="10dp"
         android:background="@drawable/button"
         android:text="Button"
+        app:backgroundTint="@color/darkOrange"
         android:textAllCaps="false" />
 </RelativeLayout>

@@ -10,4 +10,6 @@
 
     <color name="black_shade_1">#101010</color>
     <color name="black_shade_2">#303030</color>
+    <color name="azure"> #00A5FF </color>
+    <color name="darkOrange"> #FF9000 </color>
 </resources>
