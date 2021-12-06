@@ -22,6 +22,7 @@ class NoteAdapter(
     inner class NoteViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val tvNoteTitle: TextView = itemView.findViewById(R.id.tvNoteTitle)
         val tvTimeStamp: TextView = itemView.findViewById(R.id.tvNoteTimeStamp)
+        val tvNoteDescription: TextView = itemView.findViewById(R.id.tvNoteDescription)
         val ivOptions: ImageView = itemView.findViewById(R.id.ivOptions)
     }
 
@@ -33,7 +34,8 @@ class NoteAdapter(
 
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
         holder.tvNoteTitle.text = allNotes[position].noteTitle
-        holder.tvTimeStamp.text = "LastlyUpdated : " + allNotes[position].timestamp
+        holder.tvNoteDescription.text = allNotes[position].noteDescription
+        holder.tvTimeStamp.text = "Updated : " + allNotes[position].timestamp
 
         holder.ivOptions.setOnClickListener {
             val options = arrayOf(

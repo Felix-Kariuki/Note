@@ -23,6 +23,7 @@ import android.view.ViewGroup
 
 import android.R.string.no
 import android.widget.Button
+import androidx.recyclerview.widget.GridLayoutManager
 import java.lang.RuntimeException
 
 
@@ -45,6 +46,7 @@ class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInt
 
         rvNotes = binding.rvNotes
         rvNotes.layoutManager = LinearLayoutManager(this)
+        rvNotes.layoutManager = GridLayoutManager(this,2)
 
         val noteRvAdapter = NoteAdapter(this,this,this)
         rvNotes.adapter = noteRvAdapter
@@ -59,7 +61,7 @@ class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInt
         binding.fabAddNotes.setOnClickListener {
             val intent = Intent(this@MainActivity, AddEditNoteActivity::class.java)
             startActivity(intent)
-            this.finish()
+            //this.finish()
         }
 
         //swipe to delete
@@ -77,7 +79,7 @@ class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInt
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val position = viewHolder.adapterPosition
-                val note  = allNotes[position]
+                val note  = allNotes[position+1]
                 viewModel.deleteNote(note)
                 Snackbar.make(findViewById(android.R.id.content),
                     "Delete successful",Snackbar.LENGTH_LONG).apply {
@@ -101,7 +103,7 @@ class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInt
         intent.putExtra("noteDescription",note.noteDescription)
         intent.putExtra("noteID",note.id)
         startActivity(intent)
-        this.finish()
+        //this.finish()
     }
 
     override fun onDeleteIconClick(note: Note) {
