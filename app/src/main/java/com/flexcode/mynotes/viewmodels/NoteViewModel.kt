@@ -1,12 +1,12 @@
-package com.flexcode.flexnote.viewmodels
+package com.flexcode.mynotes.viewmodels
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.flexcode.flexnote.database.Note
-import com.flexcode.flexnote.database.NoteDatabase
-import com.flexcode.flexnote.database.repository.NoteRepository
+import com.flexcode.mynotes.database.Note
+import com.flexcode.mynotes.database.NoteDatabase
+import com.flexcode.mynotes.database.repository.NoteRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

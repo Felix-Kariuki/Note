@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.flexcode.flexnote">
+    package="com.flexcode.mynotes">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -13,14 +13,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FlexNote">
         <activity
-            android:name=".activities.ViewNotesActivity"
+            android:name="com.flexcode.mynotes.activities.ViewNotesActivity"
             android:exported="true" />
 
         <activity
-            android:name=".activities.AddEditNoteActivity"
+            android:name="com.flexcode.mynotes.activities.AddEditNoteActivity"
             android:exported="true" />
         <activity
-            android:name=".activities.MainActivity"
+            android:name="com.flexcode.mynotes.activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

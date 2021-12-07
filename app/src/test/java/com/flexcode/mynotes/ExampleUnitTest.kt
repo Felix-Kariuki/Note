@@ -1,4 +1,4 @@
-package com.flexcode.flexnote
+package com.flexcode.mynotes
 
 import org.junit.Test
 

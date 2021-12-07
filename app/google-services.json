@@ -96,7 +96,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:82530645706:android:3ad3d28b4d5d5469236633",
         "android_client_info": {
-          "package_name": "com.flexcode.flexnote"
+          "package_name": "com.flexcode.mynotes"
         }
       },
       "oauth_client": [
