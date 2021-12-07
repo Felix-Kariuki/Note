@@ -1,30 +1,24 @@
-package com.flexcode.flexnote.activities
+package com.flexcode.mynotes.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
-import androidx.core.view.accessibility.AccessibilityEventCompat.setAction
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.flexcode.flexnote.*
-import com.flexcode.flexnote.adapters.NoteAdapter
-import com.flexcode.flexnote.adapters.NoteClickDeleteInterface
-import com.flexcode.flexnote.adapters.NoteClickInterface
-import com.flexcode.flexnote.database.Note
-import com.flexcode.flexnote.databinding.ActivityMainBinding
-import com.flexcode.flexnote.viewmodels.NoteViewModel
+import com.flexcode.mynotes.*
+import com.flexcode.mynotes.adapters.NoteAdapter
+import com.flexcode.mynotes.adapters.NoteClickDeleteInterface
+import com.flexcode.mynotes.adapters.NoteClickInterface
+import com.flexcode.mynotes.database.Note
+import com.flexcode.mynotes.databinding.ActivityMainBinding
+import com.flexcode.mynotes.viewmodels.NoteViewModel
 import com.google.android.material.snackbar.Snackbar
-import android.view.ViewGroup
 
-import android.R.string.no
-import android.widget.Button
 import androidx.recyclerview.widget.GridLayoutManager
-import java.lang.RuntimeException
 
 
 class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInterface {

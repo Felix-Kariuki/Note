@@ -1,4 +1,4 @@
-package com.flexcode.flexnote.adapters
+package com.flexcode.mynotes.adapters
 
 import android.app.AlertDialog
 import android.content.Context
@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.flexcode.flexnote.R
-import com.flexcode.flexnote.database.Note
+import com.flexcode.mynotes.R
+import com.flexcode.mynotes.database.Note
 
 class NoteAdapter(
     private val context: Context,

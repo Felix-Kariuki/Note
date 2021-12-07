@@ -1,8 +1,8 @@
-package com.flexcode.flexnote.database.repository
+package com.flexcode.mynotes.database.repository
 
 import androidx.lifecycle.LiveData
-import com.flexcode.flexnote.database.Note
-import com.flexcode.flexnote.database.dao.NoteDao
+import com.flexcode.mynotes.database.Note
+import com.flexcode.mynotes.database.dao.NoteDao
 
 // Declares the DAO as a private property in the constructor. Pass in the DAO
 // instead of the whole database, because you only need access to the DAO

@@ -1,13 +1,13 @@
-package com.flexcode.flexnote.activities
+package com.flexcode.mynotes.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import com.flexcode.flexnote.database.Note
-import com.flexcode.flexnote.viewmodels.NoteViewModel
-import com.flexcode.flexnote.databinding.ActivityAddEditNoteBinding
+import com.flexcode.mynotes.database.Note
+import com.flexcode.mynotes.viewmodels.NoteViewModel
+import com.flexcode.mynotes.databinding.ActivityAddEditNoteBinding
 import java.text.SimpleDateFormat
 import java.util.*
 

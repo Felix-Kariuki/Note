@@ -1,8 +1,8 @@
-package com.flexcode.flexnote.activities
+package com.flexcode.mynotes.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.flexcode.flexnote.R
+import com.flexcode.mynotes.R
 
 class ViewNotesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
