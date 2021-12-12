@@ -34,9 +34,6 @@ class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInt
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        supportActionBar!!.hide()
-
-
 
         rvNotes = binding.rvNotes
         rvNotes.layoutManager = LinearLayoutManager(this)

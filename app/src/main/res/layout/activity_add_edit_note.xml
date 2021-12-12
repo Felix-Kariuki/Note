@@ -38,11 +38,13 @@
     <Button
         android:id="@+id/btnAddUpdate"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_below="@+id/etEditNoteDescription"
-        android:layout_margin="10dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
         android:background="@drawable/button"
         android:text="Button"
-        app:backgroundTint="@color/darkOrange"
-        android:textAllCaps="false" />
+        android:textAllCaps="false"
+        app:backgroundTint="@color/darkOrange" />
 </RelativeLayout>
