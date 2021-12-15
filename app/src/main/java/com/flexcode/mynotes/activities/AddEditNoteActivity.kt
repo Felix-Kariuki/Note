@@ -3,6 +3,7 @@ package com.flexcode.mynotes.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.flexcode.mynotes.database.Note
@@ -25,7 +26,11 @@ class AddEditNoteActivity : AppCompatActivity() {
 
         val etEditNoteTitle = binding.etEditNoteTitle
         val etEditNoteDescription = binding.etEditNoteDescription
+        val tvNoteTitle = binding.tvNoteTitle
+        val tvNoteDescription = binding.tvNoteDescription
         val btnAddUpdate = binding.btnAddUpdate
+        val fabUpdate = binding.fabEditNote
+
         viewModel = ViewModelProvider(
             this,
             ViewModelProvider.AndroidViewModelFactory.getInstance(application)
@@ -35,11 +40,27 @@ class AddEditNoteActivity : AppCompatActivity() {
             val noteTitle = intent.getStringExtra("noteTitle")
             val noteDesc = intent.getStringExtra("noteDescription")
             noteID = intent.getIntExtra("noteID",-1)
-            btnAddUpdate.text = "Update Note"
             etEditNoteTitle.setText(noteTitle)
             etEditNoteDescription.setText(noteDesc)
+            tvNoteDescription.text = noteDesc
+            tvNoteTitle.text = noteTitle
+            binding.tvNoteTitle.visibility = View.VISIBLE
+            binding.tvNoteDescription.visibility = View.VISIBLE
+            etEditNoteDescription.visibility = View.GONE
+            etEditNoteTitle.visibility = View.GONE
+            btnAddUpdate.visibility = View.GONE
         }else {
             btnAddUpdate.text ="Save Note"
+            fabUpdate.visibility = View.GONE
+        }
+        fabUpdate.setOnClickListener {
+            btnAddUpdate.text = "Update Note"
+            btnAddUpdate.visibility = View.VISIBLE
+            tvNoteTitle.visibility=View.GONE
+            tvNoteDescription.visibility = View.GONE
+            etEditNoteDescription.visibility = View.VISIBLE
+            etEditNoteTitle.visibility = View.VISIBLE
+            fabUpdate.visibility = View.GONE
         }
 
         btnAddUpdate.setOnClickListener {

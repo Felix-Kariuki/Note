@@ -6,6 +6,36 @@
     android:layout_height="match_parent"
     tools:context=".activities.AddEditNoteActivity">
 
+    <TextView
+        android:id="@+id/tvNoteTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="Note Title"
+        android:visibility="gone"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginBottom="10dp"
+        android:padding="8dp"
+        android:minHeight="48dp"/>
+    <TextView
+        android:id="@+id/tvNoteDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="dfdfdfdfdfdfdfdf"
+        android:visibility="gone"
+        android:layout_below="@id/tvNoteTitle"
+        android:textSize="18sp"
+        android:layout_marginBottom="10dp"
+        android:padding="8dp"
+        android:minHeight="48dp"/>
+
     <EditText
         android:id="@+id/etEditNoteTitle"
         android:layout_width="match_parent"
@@ -47,4 +77,15 @@
         android:text="Button"
         android:textAllCaps="false"
         app:backgroundTint="@color/darkOrange" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:backgroundTint="@color/darkOrange"
+        android:id="@+id/fabEditNote"
+        android:layout_margin="20dp"
+        android:contentDescription="fab"
+        android:src="@drawable/ic_add"/>
 </RelativeLayout>

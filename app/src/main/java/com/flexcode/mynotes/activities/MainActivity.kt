@@ -1,9 +1,16 @@
 package com.flexcode.mynotes.activities
 
+import android.app.AlertDialog
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.preference.PreferenceManager
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -34,6 +41,8 @@ class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInt
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        checkTheme()
 
         rvNotes = binding.rvNotes
         rvNotes.layoutManager = LinearLayoutManager(this)
@@ -103,4 +112,78 @@ class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInt
             "${note.noteTitle} Deleted",Toast.LENGTH_SHORT
         ).show()
     }
+
+    //options menu
+    /*override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.main_menu, menu)
+        return true
+    }*/
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle item selection
+        return when (item.itemId) {
+            R.id.appearance -> {
+                chooseThemeDialog()
+                true
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+    private fun chooseThemeDialog() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Change Theme")
+        val styles = arrayOf("Light", "Dark")
+        val checkedItem = MyPreferences(this).darkMode
+
+        builder.setSingleChoiceItems(styles, checkedItem) { dialog, i ->
+
+            when (i) {
+                0 -> {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                    MyPreferences(this).darkMode = 0
+                    dialog.dismiss()
+                }
+                1 -> {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                    MyPreferences(this).darkMode = 1
+                    dialog.dismiss()
+                }
+            }
+
+        }
+        val dialog = builder.create()
+        dialog.show()
+    }
+
+    private fun checkTheme() {
+        when (MyPreferences(this).darkMode) {
+            0 -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+//                delegate.applyDayNight()
+            }
+            1 -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+//                delegate.applyDayNight()
+            }
+        }
+    }
+}
+class MyPreferences(context: Context?) {
+
+    companion object {
+        private const val DARK_STATUS = "DARK_MODE"
+    }
+
+    private val preferences = PreferenceManager.getDefaultSharedPreferences(context)
+
+    var darkMode = preferences.getInt(DARK_STATUS, 0)
+        set(value) = preferences.edit().putInt(DARK_STATUS, value).apply()
 }
