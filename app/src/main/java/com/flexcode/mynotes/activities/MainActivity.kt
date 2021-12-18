@@ -3,13 +3,14 @@ package com.flexcode.mynotes.activities
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.view.Menu
-import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -37,11 +38,13 @@ class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInt
     private val allNotes = ArrayList<Note>()
 
 
+    @RequiresApi(Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //THEME
         checkTheme()
 
         rvNotes = binding.rvNotes
@@ -95,6 +98,7 @@ class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInt
             attachToRecyclerView(rvNotes)
         }
     }
+
 
     override fun onNoteClick(note: Note) {
         val intent = Intent(this@MainActivity, AddEditNoteActivity::class.java)
@@ -175,6 +179,7 @@ class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInt
             }
         }
     }
+
 }
 class MyPreferences(context: Context?) {
 
