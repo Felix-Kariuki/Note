@@ -87,5 +87,5 @@
         android:id="@+id/fabEditNote"
         android:layout_margin="20dp"
         android:contentDescription="fab"
-        android:src="@drawable/ic_add"/>
+        android:src="@drawable/ic_edit"/>
 </RelativeLayout>
