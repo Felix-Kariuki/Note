@@ -21,7 +21,7 @@
         android:layout_marginBottom="10dp"
         android:padding="8dp"
         android:minHeight="48dp"/>
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvNoteDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,48 +36,63 @@
         android:padding="8dp"
         android:minHeight="48dp"/>
 
-    <EditText
-        android:id="@+id/etEditNoteTitle"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/material0"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:helperTextTextColor="#FF6347"
+        android:layout_alignParentStart="true"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:hint="Note Title"
-        android:inputType="textMultiLine"
-        android:minHeight="48dp"
-        android:padding="8dp" />
+        app:counterEnabled="true"
+        app:counterMaxLength="25"
+        android:layout_marginBottom="10dp">
 
-    <EditText
-        android:id="@+id/etEditNoteDescription"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etEditNoteTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Note Title" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/material"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/etEditNoteTitle"
+        android:layout_below="@+id/material0"
+        android:minHeight="150dp"
+        app:helperTextTextColor="#FF6347"
+        android:layout_alignParentStart="true"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/input"
-        android:gravity="top"
-        android:hint="Description"
-        android:inputType="textMultiLine"
-        android:minHeight="150dp"
-        android:padding="8dp"
-        android:textColor="@color/black" />
+        android:layout_marginBottom="10dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etEditNoteDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="150dp"
+            android:gravity="top"
+            android:hint="Note Description" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 
     <Button
         android:id="@+id/btnAddUpdate"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_below="@+id/etEditNoteDescription"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/material"
+        android:minHeight="60dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="30dp"
-        android:background="@drawable/button"
         android:text="Button"
         android:textAllCaps="false"
+        android:textSize="18sp"
         app:backgroundTint="@color/darkOrange" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -90,4 +105,6 @@
         android:layout_margin="20dp"
         android:contentDescription="fab"
         android:src="@drawable/ic_edit"/>
+
+
 </RelativeLayout>
