@@ -6,6 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".activities.MainActivity">
 
+<!--    <Button-->
+<!--        android:id="@+id/btnAuthenticate"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Authenticate"-->
+<!--        android:textSize="20sp"-->
+<!--        android:layout_centerHorizontal="true"/>-->
+
     <!--<Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -26,14 +34,14 @@
     </androidx.recyclerview.widget.RecyclerView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddNotes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:backgroundTint="@color/darkOrange"
-        android:id="@+id/fabAddNotes"
+        android:layout_alignParentBottom="true"
         android:layout_margin="20dp"
+        android:backgroundTint="@color/darkOrange"
         android:contentDescription="fab"
-        android:src="@drawable/ic_add"/>
+        android:src="@drawable/ic_add" />
 
 </RelativeLayout>
