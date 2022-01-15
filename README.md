@@ -1,11 +1,11 @@
 # My Notepad
 A notebook using Kotlin roomdatabase and coroutines and MVVM Architecture
 
-##PlayStore
+## PlayStore
 
 To find This Application on Playstore, [CLICK HERE](https://play.google.com/store/apps/details?id=com.flexcode.mynotes)
 
-#Technologies and tools Used
+# Technologies and tools Used
 
 * Kotlin
 
@@ -19,13 +19,13 @@ To find This Application on Playstore, [CLICK HERE](https://play.google.com/stor
 
 * Biometric Authentication
 
-##Contributing
+## Contributing
 
 To Contribute, follow the following steps
 
 * Fork the Project from this [Link](https://github.com/Felix-Kariuki/Note)
 
-* Create a '''text  a different branch ''' then
+* Create a different branch then
 
 * Create a pull request and wait for code to be revieewed and merged
 
