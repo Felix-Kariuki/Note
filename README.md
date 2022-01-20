@@ -1,9 +1,9 @@
 # My Notepad
 A notebook using Kotlin roomdatabase and coroutines and MVVM Architecture
 
-## PlayStore
+## Download
 
-To find This Application on Playstore, [CLICK HERE](https://play.google.com/store/apps/details?id=com.flexcode.mynotes)
+Dowload the application, [HERE](https://play.google.com/store/apps/details?id=com.flexcode.mynotes)
 
 # Technologies and tools Used
 
@@ -12,8 +12,6 @@ To find This Application on Playstore, [CLICK HERE](https://play.google.com/stor
 * MVVM Architecture
 
 * Room
-
-* Coroutines
 
 * Material Design
 
