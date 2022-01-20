@@ -88,7 +88,8 @@ class AddEditNoteActivity : AppCompatActivity() {
                         Toast.LENGTH_SHORT).show()
                 }
             }
-            startActivity(Intent(applicationContext, MainActivity::class.java))
+            onBackPressed()
+            //startActivity(Intent(applicationContext, MainActivity::class.java))
             this.finish()
         }
     }

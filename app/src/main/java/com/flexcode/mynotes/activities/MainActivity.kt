@@ -57,25 +57,10 @@ class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInt
 
         init()
         checkDeviceCanAuthenticateWithBiometrics()
+        authenticateWithBiometrics()
 
         //THEME
         checkTheme()
-
-
-
-
-        //title, and description
-//        promptInfo = BiometricPrompt.PromptInfo.Builder()
-//            .setTitle("Login")
-//            .setSubtitle("Login to your Notepad")
-//            .setDescription("Please Authenticate Using Biometrics")
-//            .setNegativeButtonText("Cancel")
-//            .build()
-//
-        //auth btn
-//        binding.btnAuthenticate.setOnClickListener {
-//            authenticateWithBiometrics()
-//        }
 
         rvNotes = binding.rvNotes
         rvNotes.layoutManager = LinearLayoutManager(this)
@@ -132,10 +117,6 @@ class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInt
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-        authenticateWithBiometrics()
-    }
     override fun onNoteClick(note: Note) {
         val intent = Intent(this@MainActivity, AddEditNoteActivity::class.java)
         intent.putExtra("noteType", "Edit")

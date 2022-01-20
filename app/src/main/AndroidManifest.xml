@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.flexcode.mynotes">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
 
     <application
         android:allowBackup="true"
@@ -14,14 +14,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FlexNote">
         <activity
-            android:name="com.flexcode.mynotes.activities.ViewNotesActivity"
-            android:exported="true" />
-
+            android:name=".SplashActivity"
+            android:exported="false" />
         <activity
-            android:name="com.flexcode.mynotes.activities.AddEditNoteActivity"
+            android:name=".activities.ViewNotesActivity"
             android:exported="true" />
         <activity
-            android:name="com.flexcode.mynotes.activities.MainActivity"
+            android:name=".activities.AddEditNoteActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
