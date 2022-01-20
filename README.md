@@ -5,7 +5,7 @@ A notebook using Kotlin roomdatabase and coroutines and MVVM Architecture
 
 Dowload the application, [HERE](https://play.google.com/store/apps/details?id=com.flexcode.mynotes)
 
-# Technologies and tools Used
+# Technologies and libraries Used
 
 * Kotlin
 
