@@ -11,7 +11,6 @@ import android.preference.PreferenceManager
 import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatDelegate
@@ -54,6 +53,7 @@ class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInt
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
         init()
         checkDeviceCanAuthenticateWithBiometrics()
@@ -68,6 +68,7 @@ class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInt
 
         val noteRvAdapter = NoteAdapter(this, this, this)
         rvNotes.adapter = noteRvAdapter
+
         viewModel = ViewModelProvider(
             this,
             ViewModelProvider.AndroidViewModelFactory.getInstance(application)
@@ -187,7 +188,7 @@ class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInt
     }
 
     private fun checkTheme() {
-        when (MyPreferences(this).darkMode) {
+        /*when (MyPreferences(this).darkMode) {
             0 -> {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 //                delegate.applyDayNight()
@@ -196,7 +197,7 @@ class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInt
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
 //                delegate.applyDayNight()
             }
-        }
+        }*/
     }
 
     private fun init() {
