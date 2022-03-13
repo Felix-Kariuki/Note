@@ -45,11 +45,6 @@ class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInt
     lateinit var noteAdapter: NoteAdapter
     private val allNotes = ArrayList<Note>()
 
-    lateinit var executor: Executor
-    lateinit var biometricPrompt: BiometricPrompt
-    private lateinit var callBack: BiometricPrompt.AuthenticationCallback
-    private var keyguardManager: KeyguardManager? = null
-
     @RequiresApi(Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
