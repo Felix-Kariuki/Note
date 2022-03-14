@@ -1,22 +1,17 @@
 package com.flexcode.mynotes.activities
 
 import android.app.AlertDialog
-import android.app.KeyguardManager
 import android.content.Context
 import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.preference.PreferenceManager
-import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.biometric.BiometricManager
-import androidx.biometric.BiometricPrompt
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -32,10 +27,6 @@ import com.flexcode.mynotes.viewmodels.NoteViewModel
 import com.google.android.material.snackbar.Snackbar
 
 import androidx.recyclerview.widget.GridLayoutManager
-import com.flexcode.mynotes.util.Constants.RC_BIOMETRICS_ENROLL
-import com.flexcode.mynotes.util.Constants.RC_DEVICE_CREDENTIAL_ENROLL
-import java.util.concurrent.Executor
-
 
 class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInterface {
 
