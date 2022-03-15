@@ -1,7 +1,9 @@
 package com.flexcode.mynotes
 
+import android.Manifest
 import android.app.KeyguardManager
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
@@ -9,31 +11,47 @@ import android.os.Looper
 import android.provider.Settings
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricPrompt
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.flexcode.mynotes.activities.MainActivity
 import com.flexcode.mynotes.util.Constants.RC_BIOMETRICS_ENROLL
 import com.flexcode.mynotes.util.Constants.RC_DEVICE_CREDENTIAL_ENROLL
+import com.flexcode.mynotes.util.Constants.REQUEST_CODE
 import java.util.concurrent.Executor
 
 class SplashActivity : AppCompatActivity() {
 
 
-    lateinit var executor: Executor
-    lateinit var biometricPrompt: BiometricPrompt
+    private lateinit var executor: Executor
+    private lateinit var biometricPrompt: BiometricPrompt
     private lateinit var callBack: BiometricPrompt.AuthenticationCallback
     private var keyguardManager: KeyguardManager? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
         val time: Long = 1000
 
         Handler(Looper.myLooper()!!).postDelayed({
-            init()
-            checkDeviceCanAuthenticateWithBiometrics()
-            authenticateWithBiometrics()
+            //not working
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.USE_BIOMETRIC)
+                != PackageManager.PERMISSION_GRANTED){
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                    ActivityCompat.requestPermissions(this, arrayOf(
+                        Manifest.permission.USE_BIOMETRIC
+                    ), REQUEST_CODE)
+                }
+
+            }else {
+                init()
+                checkDeviceCanAuthenticateWithBiometrics()
+                authenticateWithBiometrics()
+            }
+
         },time)
 
 
