@@ -42,7 +42,7 @@ class NoteAdapter(
                 "Delete"
             )
             val builder = AlertDialog.Builder(context)
-            builder.setTitle("Delete")
+            builder.setTitle("")
             builder.setItems(options) { dialog, i ->
                 if (i == 0){
                     noteClickDeleteInterface.onDeleteIconClick(allNotes[position])
