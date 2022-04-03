@@ -27,6 +27,12 @@ import com.flexcode.mynotes.viewmodels.NoteViewModel
 import com.google.android.material.snackbar.Snackbar
 
 import androidx.recyclerview.widget.GridLayoutManager
+import com.flexcode.mynotes.util.Constants.UPDATE_CODE
+import com.google.android.play.core.appupdate.AppUpdateManager
+import com.google.android.play.core.appupdate.AppUpdateManagerFactory
+import com.google.android.play.core.install.model.AppUpdateType
+import com.google.android.play.core.install.model.UpdateAvailability
+import com.google.android.play.core.ktx.startUpdateFlowForResult
 
 class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInterface {
 
@@ -36,6 +42,8 @@ class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInt
     lateinit var noteAdapter: NoteAdapter
     private val allNotes = ArrayList<Note>()
 
+    private lateinit var appUpdate: AppUpdateManager
+
     @RequiresApi(Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +51,9 @@ class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInt
         setContentView(binding.root)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
+        //update
+        appUpdate = AppUpdateManagerFactory.create(this)
+        checkUpdate()
 
         //THEME
         checkTheme()
@@ -100,6 +111,27 @@ class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInt
 
         ItemTouchHelper(itemTouchHelperCallBack).apply {
             attachToRecyclerView(rvNotes)
+        }
+    }
+
+    private fun checkUpdate() {
+        appUpdate.appUpdateInfo.addOnSuccessListener { updateInfo->
+            if (updateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
+                && updateInfo.isUpdateTypeAllowed(AppUpdateType.IMMEDIATE)){
+                appUpdate.startUpdateFlowForResult(updateInfo, AppUpdateType.IMMEDIATE,this,
+                    UPDATE_CODE)
+            }
+        }
+    }
+
+    private fun inProgressUpdate() {
+        appUpdate.appUpdateInfo.addOnSuccessListener { updateInfo ->
+
+            if (updateInfo.updateAvailability() ==
+                UpdateAvailability.DEVELOPER_TRIGGERED_UPDATE_IN_PROGRESS){
+                appUpdate.startUpdateFlowForResult(updateInfo,AppUpdateType.IMMEDIATE,this,
+                    UPDATE_CODE)
+            }
         }
     }
 
