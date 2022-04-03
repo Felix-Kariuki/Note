@@ -1,9 +1,8 @@
 package com.flexcode.mynotes
 
-import android.Manifest
+
 import android.app.KeyguardManager
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
@@ -14,12 +13,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricPrompt
-import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.flexcode.mynotes.activities.MainActivity
 import com.flexcode.mynotes.util.Constants.RC_BIOMETRICS_ENROLL
 import com.flexcode.mynotes.util.Constants.RC_DEVICE_CREDENTIAL_ENROLL
-import com.flexcode.mynotes.util.Constants.REQUEST_CODE
 import java.util.concurrent.Executor
 
 class SplashActivity : AppCompatActivity() {
@@ -38,7 +35,7 @@ class SplashActivity : AppCompatActivity() {
 
         Handler(Looper.myLooper()!!).postDelayed({
             //not working
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.USE_BIOMETRIC)
+            /*if (ActivityCompat.checkSelfPermission(this, Manifest.permission.USE_BIOMETRIC)
                 != PackageManager.PERMISSION_GRANTED){
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
                     ActivityCompat.requestPermissions(this, arrayOf(
@@ -46,11 +43,11 @@ class SplashActivity : AppCompatActivity() {
                     ), REQUEST_CODE)
                 }
 
-            }else {
+            }else {*/
                 init()
                 checkDeviceCanAuthenticateWithBiometrics()
                 authenticateWithBiometrics()
-            }
+
 
         },time)
 
