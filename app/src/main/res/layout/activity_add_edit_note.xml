@@ -13,42 +13,53 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:minHeight="48dp"
+        android:padding="8dp"
         android:text="Note Title"
-        android:visibility="gone"
+        android:textColor="@color/black"
+        android:textIsSelectable="true"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:textColor="@color/black"
-        android:layout_marginBottom="10dp"
-        android:padding="8dp"
-        android:minHeight="48dp"/>
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tvNoteDescription"
+        android:visibility="gone" />
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:text="dfdfdfdfdfdfdfdf"
-        android:visibility="gone"
+        android:layout_height="match_parent"
         android:layout_below="@id/tvNoteTitle"
-        android:textSize="18sp"
-        android:layout_marginBottom="10dp"
-        android:padding="8dp"
-        android:minHeight="48dp"/>
+        android:scrollbars="none">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvNoteDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:minHeight="48dp"
+            android:padding="8dp"
+            android:text="dfdfdfdfdfdfdfdf"
+            android:textIsSelectable="true"
+            android:textSize="18sp"
+            android:visibility="gone" />
+
+    </ScrollView>
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/material0"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:helperTextTextColor="#FF6347"
         android:layout_alignParentStart="true"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         app:counterEnabled="true"
         app:counterMaxLength="25"
-        android:layout_marginBottom="10dp">
+        app:helperTextTextColor="#FF6347">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etEditNoteTitle"
@@ -57,57 +68,68 @@
             android:hint="Note Title" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/material"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/material0"
-        android:minHeight="150dp"
-        app:helperTextTextColor="#FF6347"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp">
+        android:layout_height="match_parent"
+        android:layout_below="@id/material0"
+        android:scrollbars="none">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etEditNoteDescription"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="150dp"
-            android:gravity="top"
-            android:hint="Note Description" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:orientation="vertical">
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/material"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:minHeight="150dp"
+                app:helperTextTextColor="#FF6347">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnAddUpdate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/material"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
-        android:padding="15dp"
-        android:minHeight="60dp"
-        android:text="Button"
-        android:textAllCaps="false"
-        app:cornerRadius="8dp"
-        android:textSize="18sp"
-        app:backgroundTint="@color/darkOrange" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEditNoteDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="top"
+                    android:hint="Note Description"
+                    android:minHeight="150dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAddUpdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="30dp"
+                android:minHeight="60dp"
+                android:padding="15dp"
+                android:text="Button"
+                android:textAllCaps="false"
+                android:textSize="18sp"
+                app:backgroundTint="@color/darkOrange"
+                app:cornerRadius="8dp" />
+        </LinearLayout>
+    </ScrollView>
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabEditNote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:backgroundTint="@color/darkOrange"
-        android:id="@+id/fabEditNote"
+        android:layout_alignParentBottom="true"
         android:layout_margin="20dp"
+        android:backgroundTint="@color/darkOrange"
         android:contentDescription="fab"
-        app:tint="@color/white"
-        android:src="@drawable/ic_edit"/>
+        android:src="@drawable/ic_edit"
+        app:tint="@color/white" />
 
 
 </RelativeLayout>
