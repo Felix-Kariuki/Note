@@ -1,27 +1,23 @@
 package com.flexcode.mynotes.viewmodels
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.flexcode.mynotes.database.Note
-import com.flexcode.mynotes.database.NoteDatabase
 import com.flexcode.mynotes.database.repository.NoteRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class NoteViewModel(application: Application): AndroidViewModel(application) {
-
-    val allNotes: LiveData<List<Note>>
-    private val allTimeStamp: LiveData<List<Note>>
+@HiltViewModel
+class NoteViewModel @Inject constructor(
     private val repository: NoteRepository
+): ViewModel() {
 
-    init {
-        val dao = NoteDatabase.getDatabase(application).getNotesDao()
-        repository = NoteRepository(dao)
-        allNotes = repository.allNotes
-        allTimeStamp = repository.allTimeStamp
-    }
+    val allNotes: LiveData<List<Note>> = repository.allNotes
+    private val allTimeStamp: LiveData<List<Note>> = repository.allTimeStamp
+
 
     fun deleteNote(note: Note) = viewModelScope.launch(Dispatchers.IO) {
         repository.delete(note)

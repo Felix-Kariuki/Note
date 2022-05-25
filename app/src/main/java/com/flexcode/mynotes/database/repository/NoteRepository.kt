@@ -3,10 +3,13 @@ package com.flexcode.mynotes.database.repository
 import androidx.lifecycle.LiveData
 import com.flexcode.mynotes.database.Note
 import com.flexcode.mynotes.database.dao.NoteDao
+import javax.inject.Inject
 
 // Declares the DAO as a private property in the constructor. Pass in the DAO
 // instead of the whole database, because you only need access to the DAO
-class NoteRepository(private val noteDao: NoteDao) {
+class NoteRepository @Inject constructor(
+    private val noteDao: NoteDao
+    ) {
 
     // Room executes all queries on a separate thread.
     // Observed Flow will notify the observer when the data has changed.

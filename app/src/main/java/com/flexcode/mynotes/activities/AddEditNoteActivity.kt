@@ -5,18 +5,20 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
+import androidx.activity.viewModels
 import com.flexcode.mynotes.database.Note
 import com.flexcode.mynotes.viewmodels.NoteViewModel
 import com.flexcode.mynotes.databinding.ActivityAddEditNoteBinding
+import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.*
 
+@AndroidEntryPoint
 class AddEditNoteActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityAddEditNoteBinding
-    lateinit var viewModel: NoteViewModel
-    var noteID = -1
+    private lateinit var binding: ActivityAddEditNoteBinding
+    private val viewModel: NoteViewModel by viewModels()
+    private var noteID = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,10 +33,10 @@ class AddEditNoteActivity : AppCompatActivity() {
         val btnAddUpdate = binding.btnAddUpdate
         val fabUpdate = binding.fabEditNote
 
-        viewModel = ViewModelProvider(
+        /*viewModel = ViewModelProvider(
             this,
             ViewModelProvider.AndroidViewModelFactory.getInstance(application)
-        ).get(NoteViewModel::class.java)
+        ).get(NoteViewModel::class.java)*/
 
 
 
