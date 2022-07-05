@@ -15,6 +15,10 @@ Dowload the application, [HERE](https://play.google.com/store/apps/details?id=co
 
 * Material Design
 
+* Dagger Hilt
+
+* Coroutines
+
 * Biometric Authentication
 
 ## Contributing
