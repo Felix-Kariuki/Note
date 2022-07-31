@@ -5,7 +5,7 @@ A notebook using Kotlin roomdatabase and coroutines and MVVM Architecture
 
 Dowload the application, [HERE](https://play.google.com/store/apps/details?id=com.flexcode.mynotes)
 
-## ScreenShots
+## Screenshots
 <img src="/screenshots/splash.png" width="360">&emsp;
 <img src="/screenshots/home.png" width="360">&emsp;
 
